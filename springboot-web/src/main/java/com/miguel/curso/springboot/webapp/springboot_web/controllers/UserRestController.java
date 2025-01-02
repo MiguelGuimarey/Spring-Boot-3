@@ -1,5 +1,9 @@
 package com.miguel.curso.springboot.webapp.springboot_web.controllers;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +24,14 @@ public class UserRestController {
         userDto.setTitle("Hola Mundo Spring Boot");
 
         return userDto;
+    }
+
+    @GetMapping("/list")
+    public List<User> list() {
+        User user1 = new User("Pepito", "Los Palotes");
+        User user2 = new User("Juan", "Alcatraz");
+        User user3 = new User("Rickinillo", "Sanchez");
+        return Arrays.asList(user1, user2, user3);
     }
 
 }

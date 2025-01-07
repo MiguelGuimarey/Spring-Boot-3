@@ -22,7 +22,7 @@ public class RequestParamsController {
     }
 
     @GetMapping("/bar")
-    public ParamMixDto foo(@RequestParam String text, @RequestParam Integer code) {
+    public ParamMixDto bar(@RequestParam String text, @RequestParam Integer code) {
         ParamMixDto param = new ParamMixDto();
         param.setMessage(text);
         param.setCode(code);

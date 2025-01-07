@@ -7,7 +7,11 @@
 </head>
 <body>
     <h1 th:text="${title}"></h1>
-    <p th:text="${user.name}"></p>
+    <p th:text="${user.name}"></p> 
     <p th:text="${user.lastName}"></p>
+    <button><a th:href="@{/list}">ver listado</a></button>
+    <button><a th:href="@{'/api/params/foo?message=' + ${title}}">ver mensaje</a></button>
+    <button><a th:href="@{/api/params/bar(text='Hola que tal el festival', code = 32323)}">ver bar mix 2</a></button>
+    <button><a th:href="@{/api/var/baz/Hola algun mensaje}">ver var path variable</a></button>
 </body>
 </html>

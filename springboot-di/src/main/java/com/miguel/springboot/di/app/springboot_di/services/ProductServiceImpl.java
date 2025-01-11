@@ -3,17 +3,19 @@ package com.miguel.springboot.di.app.springboot_di.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.miguel.springboot.di.app.springboot_di.models.Product;
 import com.miguel.springboot.di.app.springboot_di.repositories.ProductRepository;
 
-@Component
+@Service
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
     private ProductRepository repository;
+
+    public ProductServiceImpl(ProductRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<Product> findAll() {
@@ -29,4 +31,5 @@ public class ProductServiceImpl implements ProductService {
     public Product findById(Long id) {
         return repository.findById(id);
     }
+
 }

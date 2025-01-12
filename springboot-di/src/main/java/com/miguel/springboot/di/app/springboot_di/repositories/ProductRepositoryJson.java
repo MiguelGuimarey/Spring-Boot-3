@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,8 +13,8 @@ public class ProductRepositoryJson implements ProductRepository {
 
     List<Product> list;
 
-    public ProductRepositoryJson() {
-        Resource resource = new ClassPathResource("json/product.json");
+    public ProductRepositoryJson(Resource resource) {
+        //Resource resource = new ClassPathResource("json/product.json");
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             list = Arrays.asList(objectMapper.readValue(resource.getFile(), Product[].class));
